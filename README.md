@@ -62,4 +62,38 @@ CREATE TABLE `bottega_university`.`grades` (
   `nota` DECIMAL(4,2) NULL,
   PRIMARY KEY (`grades_id`),
   UNIQUE INDEX `grades_id_UNIQUE` (`grades_id` ASC) VISIBLE);
+
+- Relacion de la tabla cursos con la de profesores
+
+ALTER TABLE `bottega_university`.`courses` 
+ADD INDEX `professors_id_idx` (`professors_id` ASC) VISIBLE;
+;
+ALTER TABLE `bottega_university`.`courses` 
+ADD CONSTRAINT `professors_id`
+  FOREIGN KEY (`professors_id`)
+  REFERENCES `bottega_university`.`professors` (`professors_id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+- Relacion de la tabla grades con la de students y courses
+
+ALTER TABLE `bottega_university`.`grades` 
+ADD INDEX `course_id_idx` (`course_id` ASC) VISIBLE,
+ADD INDEX `students_id_idx` (`students_id` ASC) VISIBLE;
+;
+ALTER TABLE `bottega_university`.`grades` 
+ADD CONSTRAINT `course_id`
+  FOREIGN KEY (`course_id`)
+  REFERENCES `bottega_university`.`courses` (`courses_id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `students_id`
+  FOREIGN KEY (`students_id`)
+  REFERENCES `bottega_university`.`students` (`students_id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
   
+
