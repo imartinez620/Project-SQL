@@ -199,8 +199,24 @@ VALUES
 (5, 27, 7.74), (5, 29, 9.13);
 
 
-
+- **Scripts para consultas**
 - **The average grade that is given by each professor**
+
+SELECT 
+    p.professors_name AS Profesor,
+    AVG(g.nota) AS 'Nota Media'
+FROM 
+    grades g
+JOIN 
+    courses c
+    ON g.course_id = c.courses_id
+JOIN 
+    professors p
+    ON c.professors_id = p.professors_id
+GROUP BY 
+    p.professors_name
+ORDER BY 
+  'Nota Media' DESC;
 
   
 - **The top grades for each student**
