@@ -101,7 +101,7 @@ ADD CONSTRAINT `students_id`
   
 -- **Insertar 30 estudiantes**
 
-INSERT INTO `bottega_university`.`students` (`students_name`, `students_email`)
+INSERT INTO students (students_name, students_email)
 VALUES
 ('John Doe', 'john.doe@example.com'),
 ('Jane Smith', 'jane.smith@example.com'),
@@ -136,7 +136,7 @@ VALUES
 
 -- **Insertar 3 profesores**
 
-INSERT INTO `bottega_university`.`professors` (`professors_name`, `professors_email`)
+INSERT INTO professors (professors_name, professors_email)
 VALUES
 ('Professor Smith', 'prof.smith@example.com'),
 ('Professor Johnson', 'prof.johnson@example.com'),
@@ -144,7 +144,7 @@ VALUES
 
 -- **Insertar 5 asignaturas**
 
-INSERT INTO `bottega_university`.`courses` (`courses_name`, `professors_id`)
+INSERT INTO courses (courses_name, professors_id)
 VALUES
 ('Mathematics', 1),
 ('Physics', 1),
@@ -154,7 +154,7 @@ VALUES
 
 -- **Insertar notas**
 
-INSERT INTO `bottega_university`.`grades` (`course_id`, `students_id`, `nota`)
+INSERT INTO grades (course_id, students_id, nota)
 VALUES
 -- **Matemáticas (course_id 1)**
 
