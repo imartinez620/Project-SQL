@@ -94,7 +94,9 @@ ADD CONSTRAINT `students_id`
   ON UPDATE NO ACTION;
 
 - Script para insertar datos
+  
 -- Insertar 30 estudiantes
+
 INSERT INTO `bottega_university`.`students` (`students_name`, `students_email`)
 VALUES
 ('John Doe', 'john.doe@example.com'),
@@ -129,6 +131,7 @@ VALUES
 ('Isabella Torres', 'isabella.torres@example.com');
 
 -- Insertar 5 profesores
+
 INSERT INTO `bottega_university`.`professors` (`professors_name`, `professors_email`)
 VALUES
 ('Professor Smith', 'prof.smith@example.com'),
@@ -138,6 +141,7 @@ VALUES
 ('Professor Martinez', 'prof.martinez@example.com');
 
 -- Insertar 5 asignaturas
+
 INSERT INTO `bottega_university`.`courses` (`courses_name`, `professors_id`)
 VALUES
 ('Mathematics', 1),
@@ -147,9 +151,11 @@ VALUES
 ('Chemistry', 5);
 
 -- Insertar notas
+
 INSERT INTO `bottega_university`.`grades` (`course_id`, `students_id`, `nota`)
 VALUES
 -- Matemáticas (course_id 1)
+
 (1, 1, 8.75), (1, 2, 9.2), (1, 3, 7.12), (1, 4, 9.89), (1, 5, 6.54),
 (1, 6, 8.35), (1, 7, 7.92), (1, 8, 9.13), (1, 9, 8.45), (1, 10, 7.72),
 (1, 11, 9.67), (1, 12, 6.94), (1, 13, 8.21), (1, 14, 9.35), (1, 15, 7.60),
@@ -158,6 +164,7 @@ VALUES
 (1, 26, 9.12), (1, 27, 8.34), (1, 28, 7.58), (1, 29, 9.88), (1, 30, 8.65),
 
 -- Física (course_id 2)
+
 (2, 1, 9.12), (2, 2, 8.75), (2, 3, 7.95), (2, 4, 9.47), (2, 5, 6.86),
 (2, 6, 9.33), (2, 7, 8.44), (2, 8, 7.98), (2, 9, 9.00), (2, 10, 8.13),
 (2, 11, 9.25), (2, 12, 7.88), (2, 13, 8.63), (2, 14, 7.95), (2, 15, 9.76),
@@ -166,6 +173,7 @@ VALUES
 (2, 26, 9.45), (2, 27, 7.63), (2, 28, 8.97), (2, 29, 9.11), (2, 30, 8.55),
 
 -- Ciencias de la Computación (course_id 3)
+
 (3, 1, 8.99), (3, 2, 9.15), (3, 3, 7.86), (3, 4, 9.05), (3, 5, 6.54),
 (3, 6, 8.67), (3, 7, 9.22), (3, 8, 7.75), (3, 9, 8.43), (3, 10, 7.89),
 (3, 11, 9.05), (3, 12, 7.99), (3, 13, 8.66), (3, 14, 9.35), (3, 15, 8.72),
@@ -174,6 +182,7 @@ VALUES
 (3, 26, 9.10), (3, 27, 8.77), (3, 28, 9.48), (3, 29, 7.65), (3, 30, 9.55),
 
 -- Historia (course_id 4)
+
 (4, 1, 9.30), (4, 2, 8.05), (4, 3, 9.95), (4, 4, 7.62), (4, 5, 8.54),
 (4, 6, 9.00), (4, 7, 8.77), (4, 8, 9.12), (4, 9, 7.99), (4, 10, 8.14),
 (4, 11, 9.55), (4, 12, 7.72), (4, 13, 8.63), (4, 14, 9.30), (4, 15, 7.45),
@@ -182,6 +191,7 @@ VALUES
 (4, 26, 9.08), (4, 27, 8.65), (4, 28, 9.33), (4, 29, 7.44), (4, 30, 9.70),
 
 -- Química (course_id 5)
+
 (5, 1, 8.60), (5, 2, 9.15), (5, 3, 7.95), (5, 4, 9.22), (5, 5, 6.33),
 (5, 6, 9.25), (5, 7, 8.44), (5, 8, 9.15), (5, 9, 7.94), (5, 10, 8.89),
 (5, 11, 9.33), (5, 12, 7.55), (5, 13, 8.44), (5, 14, 9.06), (5, 15, 7.74),
