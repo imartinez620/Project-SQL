@@ -63,6 +63,8 @@ CREATE TABLE `bottega_university`.`grades` (
   PRIMARY KEY (`grades_id`),
   UNIQUE INDEX `grades_id_UNIQUE` (`grades_id` ASC) VISIBLE);
 
+  
+
 - **Relacion de la tabla cursos con la de profesores**
 
 ALTER TABLE `bottega_university`.`courses` 
@@ -92,6 +94,8 @@ ADD CONSTRAINT `students_id`
   REFERENCES `bottega_university`.`students` (`students_id`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
+
+  
 
 - **Script para insertar datos**
   
