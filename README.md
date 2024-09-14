@@ -20,11 +20,11 @@ Build a SQL database for a university that manages students, courses, professors
 Push all scripts to a single Github repository and submit the link to a Mentor through the support app. If you're not familiar with Github, create a separate gist for all of the scripts and submit the gist through the support app.
 
 - Crea el espacio de trabajo
-- 
+  
 CREATE SCHEMA `bottega_university`;
 
 - Crea la tabla students
-- 
+  
 CREATE TABLE `bottega_university`.`students` (
   `students_id` INT NOT NULL AUTO_INCREMENT,
   `students_name` VARCHAR(80) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `bottega_university`.`students` (
   UNIQUE INDEX `students_email_UNIQUE` (`students_email` ASC) VISIBLE);
 
 - Crea la tabla courses
-- 
+  
 CREATE TABLE `bottega_university`.`courses` (
   `courses_id` INT NOT NULL AUTO_INCREMENT,
   `courses_name` VARCHAR(120) NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `bottega_university`.`courses` (
   UNIQUE INDEX `courses_name_UNIQUE` (`courses_name` ASC) VISIBLE);
 
 - Crea la tabla professors
-- 
+  
 CREATE TABLE `bottega_university`.`professors` (
   `professors_id` INT NOT NULL AUTO_INCREMENT,
   `professors_name` VARCHAR(80) NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE `bottega_university`.`professors` (
   UNIQUE INDEX `professors_mail_UNIQUE` (`professors_email` ASC) VISIBLE);
 
 - Crea la tabla grades
-- 
+  
 CREATE TABLE `bottega_university`.`grades` (
   `grades_id` INT NOT NULL AUTO_INCREMENT,
   `course_id` INT NOT NULL,
