@@ -204,5 +204,21 @@ VALUES
 (5, 26, 9.58), (5, 27, 7.74), (5, 28, 8.34), (5, 29, 9.13), (5, 30, 8.66);
 
 
+
+- **The average grade that is given by each professor**
+
+  
+- **The top grades for each student**
+
+  
+- **Sort students by the courses that they are enrolled in**
+
+  
+- **Create a summary report of courses and their average grades, sorted by the most challenging course (course with the lowest average grade) to the easiest course**
+
+  
+- **Finding which student and professor have the most courses in common**
+
+  
   
 
