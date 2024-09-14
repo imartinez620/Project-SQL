@@ -209,14 +209,47 @@ VALUES
 
   
 - **The top grades for each student**
-
   
-- **Sort students by the courses that they are enrolled in**
+SELECT 
+  g.students_id AS ID, 
+  s.students_name AS Estudiante,
+  MAX(g.nota) AS Nota
+FROM 
+  grades g
+JOIN 
+  students s
+ON 
+  g.students_id = s.students_id
+GROUP BY 
+  g.students_id, s.students_name
+
+ORDER BY 
+  Nota DESC;
+  
+  
+- **Sort students by the courses that they are enrolled in (Claro en un principio hice que la clase asistiese a todos los cursos al entender que no eran opcionales)**
+Al no tener ID de alumno la tabla de cursos, tengo que tirar antes de grades.
+
+SELECT 
+  s.students_name AS ID, 
+  c.courses_name AS Curso
+FROM 
+  students s
+JOIN 
+  grades g
+ON 
+  s.students_id = g.students_id
+JOIN 
+  courses c
+ON 
+  g.course_id = c.courses_id
+ORDER BY 
+  s.students_name, c.courses_name;
 
   
 - **Create a summary report of courses and their average grades, sorted by the most challenging course (course with the lowest average grade) to the easiest course**
 
-  
+
 - **Finding which student and professor have the most courses in common**
 
   
