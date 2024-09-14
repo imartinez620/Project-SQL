@@ -204,7 +204,7 @@ VALUES
 
 SELECT 
     p.professors_name AS Profesor,
-    AVG(g.nota) AS 'Nota Media'
+    AVG(g.nota) AS Nota
 FROM 
     grades g
 JOIN 
@@ -216,7 +216,7 @@ JOIN
 GROUP BY 
     p.professors_name
 ORDER BY 
-  'Nota Media' DESC;
+  Nota DESC;
 
   
 - **The top grades for each student**
@@ -224,7 +224,7 @@ ORDER BY
 SELECT 
   g.students_id AS ID, 
   s.students_name AS Estudiante,
-  MAX(g.nota) AS Nota
+  MAX(g.nota) AS Media
 FROM 
   grades g
 JOIN 
@@ -234,7 +234,7 @@ ON
 GROUP BY 
   g.students_id, s.students_name
 ORDER BY 
-  Nota DESC;
+  Media DESC;
   
   
 - **Sort students by the courses that they are enrolled in**
@@ -259,6 +259,18 @@ ORDER BY
   
 - **Create a summary report of courses and their average grades, sorted by the most challenging course (course with the lowest average grade) to the easiest course**
 
+SELECT
+    c.courses_name AS Curso,
+    AVG(g.nota) AS Media
+FROM
+    grades g
+JOIN
+    courses c
+    ON g.course_id = c.courses_id
+GROUP BY
+    c.courses_name
+ORDER BY
+    Media ASC;
 
 
 - **Finding which student and professor have the most courses in common**
