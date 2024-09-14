@@ -74,7 +74,7 @@ ALTER TABLE `bottega_university`.`courses`
 ADD CONSTRAINT `professors_id`
   FOREIGN KEY (`professors_id`)
   REFERENCES `bottega_university`.`professors` (`professors_id`)
-  ON DELETE NO ACTION
+  ON DELETE CASCADE
   ON UPDATE NO ACTION;
 
 - **Relacion de la tabla grades con la de students y courses**
@@ -87,12 +87,12 @@ ALTER TABLE `bottega_university`.`grades`
 ADD CONSTRAINT `course_id`
   FOREIGN KEY (`course_id`)
   REFERENCES `bottega_university`.`courses` (`courses_id`)
-  ON DELETE NO ACTION
+  ON DELETE CASCADE
   ON UPDATE NO ACTION,
 ADD CONSTRAINT `students_id`
   FOREIGN KEY (`students_id`)
   REFERENCES `bottega_university`.`students` (`students_id`)
-  ON DELETE NO ACTION
+  ON DELETE CASCADE
   ON UPDATE NO ACTION;
 
   
@@ -134,25 +134,23 @@ VALUES
 ('Ella Wright', 'ella.wright@example.com'),
 ('Isabella Torres', 'isabella.torres@example.com');
 
--- **Insertar 5 profesores**
+-- **Insertar 3 profesores**
 
 INSERT INTO `bottega_university`.`professors` (`professors_name`, `professors_email`)
 VALUES
 ('Professor Smith', 'prof.smith@example.com'),
 ('Professor Johnson', 'prof.johnson@example.com'),
-('Professor Davis', 'prof.davis@example.com'),
-('Professor Lee', 'prof.lee@example.com'),
-('Professor Martinez', 'prof.martinez@example.com');
+('Professor Davis', 'prof.davis@example.com');
 
 -- **Insertar 5 asignaturas**
 
 INSERT INTO `bottega_university`.`courses` (`courses_name`, `professors_id`)
 VALUES
 ('Mathematics', 1),
-('Physics', 2),
-('Computer Science', 3),
-('History', 4),
-('Chemistry', 5);
+('Physics', 1),
+('Computer Science', 1),
+('History', 2),
+('Chemistry', 3);
 
 -- **Insertar notas**
 
@@ -169,21 +167,19 @@ VALUES
 
 -- **Física (course_id 2)**
 
-(2, 1, 9.12), (2, 2, 8.75), (2, 3, 7.95), (2, 4, 9.47), (2, 5, 6.86),
-(2, 6, 9.33), (2, 7, 8.44), (2, 8, 7.98), (2, 9, 9.00), (2, 10, 8.13),
-(2, 11, 9.25), (2, 12, 7.88), (2, 13, 8.63), (2, 14, 7.95), (2, 15, 9.76),
-(2, 16, 8.42), (2, 17, 9.78), (2, 18, 8.11), (2, 19, 9.88), (2, 20, 7.60),
-(2, 21, 8.35), (2, 22, 9.56), (2, 23, 7.54), (2, 24, 9.25), (2, 25, 8.02),
-(2, 26, 9.45), (2, 27, 7.63), (2, 28, 8.97), (2, 29, 9.11), (2, 30, 8.55),
+(2, 1, 9.12), (2, 2, 8.75), (2, 4, 9.47),
+(2, 7, 8.44), (2, 9, 9.00), (2, 12, 7.88),
+(2, 14, 7.95), (2, 16, 8.42), (2, 18, 8.11),
+(2, 19, 9.88), (2, 22, 9.56), (2, 25, 8.02),
+(2, 30, 8.55),
 
 -- **Ciencias de la Computación (course_id 3)**
 
-(3, 1, 8.99), (3, 2, 9.15), (3, 3, 7.86), (3, 4, 9.05), (3, 5, 6.54),
-(3, 6, 8.67), (3, 7, 9.22), (3, 8, 7.75), (3, 9, 8.43), (3, 10, 7.89),
-(3, 11, 9.05), (3, 12, 7.99), (3, 13, 8.66), (3, 14, 9.35), (3, 15, 8.72),
-(3, 16, 9.46), (3, 17, 7.84), (3, 18, 9.25), (3, 19, 8.51), (3, 20, 9.89),
-(3, 21, 8.10), (3, 22, 9.77), (3, 23, 8.55), (3, 24, 9.24), (3, 25, 8.66),
-(3, 26, 9.10), (3, 27, 8.77), (3, 28, 9.48), (3, 29, 7.65), (3, 30, 9.55),
+(3, 2, 9.15), (3, 3, 7.86), (3, 5, 6.54),
+(3, 7, 9.22), (3, 8, 7.75), (3, 10, 7.89),
+(3, 13, 8.66), (3, 15, 8.72), (3, 17, 7.84),
+(3, 19, 8.51), (3, 21, 8.10), (3, 23, 8.55), 
+(3, 26, 9.10), (3, 28, 9.48), (3, 30, 9.55),
 
 -- **Historia (course_id 4)**
 
@@ -196,12 +192,11 @@ VALUES
 
 -- **Química (course_id 5)**
 
-(5, 1, 8.60), (5, 2, 9.15), (5, 3, 7.95), (5, 4, 9.22), (5, 5, 6.33),
-(5, 6, 9.25), (5, 7, 8.44), (5, 8, 9.15), (5, 9, 7.94), (5, 10, 8.89),
-(5, 11, 9.33), (5, 12, 7.55), (5, 13, 8.44), (5, 14, 9.06), (5, 15, 7.74),
-(5, 16, 8.45), (5, 17, 9.69), (5, 18, 8.23), (5, 19, 9.34), (5, 20, 7.55),
-(5, 21, 8.99), (5, 22, 9.71), (5, 23, 8.65), (5, 24, 7.89), (5, 25, 9.10),
-(5, 26, 9.58), (5, 27, 7.74), (5, 28, 8.34), (5, 29, 9.13), (5, 30, 8.66);
+(5, 2, 9.15), (5, 3, 7.95), (5, 4, 9.22),
+(5, 6, 9.25), (5, 8, 9.15), (5, 10, 8.89),
+(5, 12, 7.55), (5, 14, 9.06), (5, 17, 9.69),
+(5, 19, 9.34), (5, 22, 9.71), (5, 24, 7.89), 
+(5, 27, 7.74), (5, 29, 9.13);
 
 
 
@@ -222,12 +217,11 @@ ON
   g.students_id = s.students_id
 GROUP BY 
   g.students_id, s.students_name
-
 ORDER BY 
   Nota DESC;
   
   
-- **Sort students by the courses that they are enrolled in (Claro en un principio hice que la clase asistiese a todos los cursos al entender que no eran opcionales)**
+- **Sort students by the courses that they are enrolled in**
 Al no tener ID de alumno la tabla de cursos, tengo que tirar antes de grades.
 
 SELECT 
@@ -248,6 +242,7 @@ ORDER BY
 
   
 - **Create a summary report of courses and their average grades, sorted by the most challenging course (course with the lowest average grade) to the easiest course**
+
 
 
 - **Finding which student and professor have the most courses in common**
