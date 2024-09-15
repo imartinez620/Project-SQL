@@ -275,6 +275,28 @@ ORDER BY
 
 - **Finding which student and professor have the most courses in common**
 
-  
+SELECT
+    s.students_name AS Estudiante,
+    p.professors_name AS Profesor,
+    COUNT(c.courses_id) AS  Cursos
+FROM
+    students s
+JOIN
+    grades g 
+ON 
+    s.students_id = g.students_id
+JOIN
+    courses c 
+ON 
+    g.course_id = c.courses_id
+JOIN
+    professors p 
+ON 
+    c.professors_id = p.professors_id
+GROUP BY
+    s.students_name, p.professors_name
+ORDER BY
+    Cursos DESC
+LIMIT 1;  
   
 
